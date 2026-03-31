@@ -1,37 +1,543 @@
 [
   {
     "id": 1,
-    "title": "The First Comic",
-    "date": "2025-01-15",
-    "filename": "comic-001.png",
-    "description": "Welcome to the absurd world of Gryzlock!"
+    "title": "Save the Planet",
+    "date": "2024-02-02",
+    "coverUrl": "https://i.imgur.com/hdc2phw.jpeg",
+    "panels": [
+      "https://i.imgur.com/hdc2phw.jpeg",
+      "https://i.imgur.com/9Ibpi99.jpeg",
+      "https://i.imgur.com/7P0GU01.jpeg",
+      "https://i.imgur.com/0CDkla3.gif",
+      "https://i.imgur.com/QCi9Pa5.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Save the Planet",
+    "imgurHash": "d6kIxua"
   },
   {
     "id": 2,
-    "title": "Pop Culture Reference",
-    "date": "2025-01-22",
-    "filename": "comic-002.png",
-    "description": "Superheroes have rough days too"
+    "title": "Who Needs Eagles?",
+    "date": "2024-02-02",
+    "coverUrl": "https://i.imgur.com/kVMGtKy.jpeg",
+    "panels": [
+      "https://i.imgur.com/kVMGtKy.jpeg",
+      "https://i.imgur.com/6D3L62S.jpeg",
+      "https://i.imgur.com/XJb0fQ7.jpeg",
+      "https://i.imgur.com/4nWqRCx.jpeg",
+      "https://i.imgur.com/VYJZMx8.jpeg",
+      "https://i.imgur.com/3cOlT4b.jpeg",
+      "https://i.imgur.com/DEUw9hk.jpeg",
+      "https://i.imgur.com/vann9ej.jpeg",
+      "https://i.imgur.com/YMDvzhE.jpeg",
+      "https://i.imgur.com/V7CtecN.jpeg"
+    ],
+    "panelCount": 10,
+    "description": "Collab with Rusty.creates",
+    "imgurHash": "LuyNBAa"
   },
   {
     "id": 3,
-    "title": "Everyday Humor",
-    "date": "2025-01-29",
-    "filename": "comic-003.png",
-    "description": "Why are cats so weird?"
+    "title": "I Loved Voyager",
+    "date": "2024-02-05",
+    "coverUrl": "https://i.imgur.com/366VNfW.jpeg",
+    "panels": ["https://i.imgur.com/366VNfW.jpeg"],
+    "panelCount": 1,
+    "description": "I Loved Voyager",
+    "imgurHash": "w1kwdKC"
   },
   {
     "id": 4,
-    "title": "Special Collab",
-    "date": "2025-02-05",
-    "filename": "comic-004.png",
-    "description": "With a fellow artist — double the creativity!"
+    "title": "Filling the Void",
+    "date": "2024-02-20",
+    "coverUrl": "https://i.imgur.com/TeSUWIQ.jpeg",
+    "panels": [
+      "https://i.imgur.com/TeSUWIQ.jpeg",
+      "https://i.imgur.com/TDu6w7a.jpeg",
+      "https://i.imgur.com/EVcXxLf.jpeg",
+      "https://i.imgur.com/vGJqsq4.jpeg",
+      "https://i.imgur.com/r4I2Xh5.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Filling the Void",
+    "imgurHash": "UnDeF8y"
   },
   {
     "id": 5,
-    "title": "Wild Jokes",
-    "date": "2025-02-12",
-    "filename": "comic-005.png",
-    "description": "Because absurd humor is the best humor"
+    "title": "The Wish",
+    "date": "2024-03-22",
+    "coverUrl": "https://i.imgur.com/1CK4FPC.jpeg",
+    "panels": [
+      "https://i.imgur.com/1CK4FPC.jpeg",
+      "https://i.imgur.com/NXwOVDW.jpeg",
+      "https://i.imgur.com/RsAj49M.jpeg",
+      "https://i.imgur.com/9XxsBXW.jpeg",
+      "https://i.imgur.com/KLQa5h2.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "The Wish",
+    "imgurHash": "4PnP7nF"
+  },
+  {
+    "id": 6,
+    "title": "Sundowners",
+    "date": "2024-04-06",
+    "coverUrl": "https://i.imgur.com/tIKjgH1.jpeg",
+    "panels": [
+      "https://i.imgur.com/tIKjgH1.jpeg",
+      "https://i.imgur.com/f6v8ixH.jpeg",
+      "https://i.imgur.com/tEFI5Rg.jpeg",
+      "https://i.imgur.com/w6pwGVw.jpeg",
+      "https://i.imgur.com/DZjKJAo.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Sundowners",
+    "imgurHash": "tL2Regj"
+  },
+  {
+    "id": 7,
+    "title": "Relevant Repost",
+    "date": "2024-04-15",
+    "coverUrl": "https://i.imgur.com/WVJnN0n.jpeg",
+    "panels": [
+      "https://i.imgur.com/WVJnN0n.jpeg",
+      "https://i.imgur.com/O1w6fKd.jpeg",
+      "https://i.imgur.com/MFbO80w.jpeg",
+      "https://i.imgur.com/RNJPoER.jpeg",
+      "https://i.imgur.com/Cw9GxAu.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Relevant Repost",
+    "imgurHash": "vMRbr1D"
+  },
+  {
+    "id": 8,
+    "title": "Generational Disappointment",
+    "date": "2024-06-24",
+    "coverUrl": "https://i.imgur.com/vQ5BXXE.jpeg",
+    "panels": [
+      "https://i.imgur.com/vQ5BXXE.jpeg",
+      "https://i.imgur.com/mJnYC4G.jpeg",
+      "https://i.imgur.com/uy5Bh1x.jpeg",
+      "https://i.imgur.com/HhD5v27.jpeg",
+      "https://i.imgur.com/9hP2u6h.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Generational Disappointment",
+    "imgurHash": "vvwu5HU"
+  },
+  {
+    "id": 9,
+    "title": "AI Overlord",
+    "date": "2024-07-13",
+    "coverUrl": "https://i.imgur.com/Cqx0XYL.jpeg",
+    "panels": [
+      "https://i.imgur.com/Cqx0XYL.jpeg",
+      "https://i.imgur.com/7eeqwuC.jpeg",
+      "https://i.imgur.com/i4qaNwD.jpeg",
+      "https://i.imgur.com/YuhdPyX.jpeg",
+      "https://i.imgur.com/E3tYQ9X.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "AI Overlord",
+    "imgurHash": "wHM3LHh"
+  },
+  {
+    "id": 10,
+    "title": "Kinkmaster Part 1",
+    "date": "2024-07-13",
+    "coverUrl": "https://i.imgur.com/OZUhc0j.jpeg",
+    "panels": [
+      "https://i.imgur.com/OZUhc0j.jpeg",
+      "https://i.imgur.com/7FMxE2c.jpeg",
+      "https://i.imgur.com/oZp2qpx.jpeg",
+      "https://i.imgur.com/bwB2oJV.jpeg",
+      "https://i.imgur.com/ueafvCT.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Kinkmaster Part 1",
+    "imgurHash": "PZ0rN8d"
+  },
+  {
+    "id": 11,
+    "title": "My Submission",
+    "date": "2024-07-23",
+    "coverUrl": "https://i.imgur.com/yPcFxUf.jpeg",
+    "panels": ["https://i.imgur.com/yPcFxUf.jpeg"],
+    "panelCount": 1,
+    "description": "My Submission",
+    "imgurHash": "ZiD8YC2"
+  },
+  {
+    "id": 12,
+    "title": "Orange Belt in Karate!",
+    "date": "2024-08-05",
+    "coverUrl": "https://i.imgur.com/VmUBlEd.jpeg",
+    "panels": ["https://i.imgur.com/VmUBlEd.jpeg"],
+    "panelCount": 1,
+    "description": "Orange Belt in Karate!",
+    "imgurHash": "T6V1Nd2"
+  },
+  {
+    "id": 13,
+    "title": "Lady Death",
+    "date": "2024-08-14",
+    "coverUrl": "https://i.imgur.com/4hOBRHa.jpeg",
+    "panels": [
+      "https://i.imgur.com/4hOBRHa.jpeg",
+      "https://i.imgur.com/XA60KXO.jpeg",
+      "https://i.imgur.com/rqGJDzr.jpeg",
+      "https://i.imgur.com/1lpJAtW.jpeg",
+      "https://i.imgur.com/0YUjwXe.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Lady Death",
+    "imgurHash": "dIbiMoX"
+  },
+  {
+    "id": 14,
+    "title": "Behold Murphy",
+    "date": "2024-08-14",
+    "coverUrl": "https://i.imgur.com/w5CActy.jpeg",
+    "panels": ["https://i.imgur.com/w5CActy.jpeg"],
+    "panelCount": 1,
+    "description": "Behold Murphy",
+    "imgurHash": "cqwbhO0"
+  },
+  {
+    "id": 15,
+    "title": "Team Meeting",
+    "date": "2024-08-19",
+    "coverUrl": "https://i.imgur.com/qVLspcv.jpeg",
+    "panels": [
+      "https://i.imgur.com/qVLspcv.jpeg",
+      "https://i.imgur.com/iioCsW6.jpeg",
+      "https://i.imgur.com/hpJprI1.jpeg",
+      "https://i.imgur.com/rXGjto1.jpeg",
+      "https://i.imgur.com/lslKfRN.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Team Meeting",
+    "imgurHash": "V0saUds"
+  },
+  {
+    "id": 16,
+    "title": "A Gryzlock Tale",
+    "date": "2024-09-04",
+    "coverUrl": "https://i.imgur.com/fLWuSzf.jpeg",
+    "panels": [
+      "https://i.imgur.com/fLWuSzf.jpeg",
+      "https://i.imgur.com/dMCzJJb.jpeg",
+      "https://i.imgur.com/BVaJxnW.jpeg",
+      "https://i.imgur.com/XiO5KUJ.jpeg",
+      "https://i.imgur.com/CEnp59I.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "A Gryzlock Tale",
+    "imgurHash": "BABKQUp"
+  },
+  {
+    "id": 17,
+    "title": "Average Rally",
+    "date": "2024-09-21",
+    "coverUrl": "https://i.imgur.com/GKDYfYC.jpeg",
+    "panels": [
+      "https://i.imgur.com/GKDYfYC.jpeg",
+      "https://i.imgur.com/kVzBQjf.jpeg",
+      "https://i.imgur.com/iZbR09d.jpeg",
+      "https://i.imgur.com/Rk4TW4B.jpeg",
+      "https://i.imgur.com/z2LUJOV.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Average Rally",
+    "imgurHash": "WJQnUrM"
+  },
+  {
+    "id": 18,
+    "title": "The Hunt",
+    "date": "2024-09-22",
+    "coverUrl": "https://i.imgur.com/kW6FApG.jpeg",
+    "panels": [
+      "https://i.imgur.com/kW6FApG.jpeg",
+      "https://i.imgur.com/rqjw3uA.jpeg",
+      "https://i.imgur.com/hRvqN0d.jpeg",
+      "https://i.imgur.com/1Y2zqsz.jpeg",
+      "https://i.imgur.com/XYPmcl0.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "The Hunt",
+    "imgurHash": "zNfyS1T"
+  },
+  {
+    "id": 19,
+    "title": "The Good Stuff",
+    "date": "2024-10-29",
+    "coverUrl": "https://i.imgur.com/S4BLzCl.jpeg",
+    "panels": [
+      "https://i.imgur.com/S4BLzCl.jpeg",
+      "https://i.imgur.com/JFqVLBf.jpeg",
+      "https://i.imgur.com/pM5sPrZ.jpeg",
+      "https://i.imgur.com/q6VLlgJ.jpeg",
+      "https://i.imgur.com/J1YqVkj.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "The Good Stuff",
+    "imgurHash": "WnHXo5z"
+  },
+  {
+    "id": 20,
+    "title": "Toad is Hurting",
+    "date": "2024-11-04",
+    "coverUrl": "https://i.imgur.com/Qr2osjN.jpeg",
+    "panels": [
+      "https://i.imgur.com/Qr2osjN.jpeg",
+      "https://i.imgur.com/l7CkIIT.jpeg",
+      "https://i.imgur.com/3FqPXX1.jpeg",
+      "https://i.imgur.com/Gk73lgL.jpeg",
+      "https://i.imgur.com/b2T0lBf.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Toad is Hurting",
+    "imgurHash": "AsXcItw"
+  },
+  {
+    "id": 21,
+    "title": "Kinkmaster: The Last of the Trilogy",
+    "date": "2024-11-15",
+    "coverUrl": "https://i.imgur.com/0CQCJzw.jpeg",
+    "panels": [
+      "https://i.imgur.com/0CQCJzw.jpeg",
+      "https://i.imgur.com/z4mU0KH.jpeg",
+      "https://i.imgur.com/26szkcT.jpeg",
+      "https://i.imgur.com/4tPogaB.jpeg",
+      "https://i.imgur.com/zrPCut7.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Kinkmaster: The Last of the Trilogy",
+    "imgurHash": "b0F1kN2"
+  },
+  {
+    "id": 22,
+    "title": "Comics That Didn't Make Front Page",
+    "date": "2024-11-15",
+    "coverUrl": "https://i.imgur.com/33MLvOn.jpeg",
+    "panels": [
+      "https://i.imgur.com/33MLvOn.jpeg",
+      "https://i.imgur.com/sS3AB9x.jpeg",
+      "https://i.imgur.com/QcmiAWb.jpeg",
+      "https://i.imgur.com/Lw0bBXN.jpeg",
+      "https://i.imgur.com/AoxYa8L.jpeg",
+      "https://i.imgur.com/CWPUVCt.jpeg",
+      "https://i.imgur.com/VJ7XlrQ.jpeg",
+      "https://i.imgur.com/lLHYHtK.jpeg",
+      "https://i.imgur.com/DQAV36k.jpeg",
+      "https://i.imgur.com/dXYREgh.jpeg",
+      "https://i.imgur.com/jwfW0hy.jpeg",
+      "https://i.imgur.com/twPXBWu.jpeg",
+      "https://i.imgur.com/jQkRNT5.jpeg",
+      "https://i.imgur.com/Tl1IKug.jpeg",
+      "https://i.imgur.com/XJ3BBCA.jpeg",
+      "https://i.imgur.com/6Wbbhyl.jpeg",
+      "https://i.imgur.com/PZwQKd4.jpeg",
+      "https://i.imgur.com/H0Lfv9W.jpeg",
+      "https://i.imgur.com/Mry4Ccm.jpeg",
+      "https://i.imgur.com/yhbRD2O.jpeg",
+      "https://i.imgur.com/znMtwve.jpeg",
+      "https://i.imgur.com/fisb4Sa.jpeg",
+      "https://i.imgur.com/vDYBEgi.jpeg",
+      "https://i.imgur.com/c6LAoKR.jpeg",
+      "https://i.imgur.com/2NzgLbj.jpeg",
+      "https://i.imgur.com/eGFa3pU.jpeg",
+      "https://i.imgur.com/G4HbiPW.jpeg",
+      "https://i.imgur.com/CSvnYgE.jpeg",
+      "https://i.imgur.com/yEtILiN.jpeg",
+      "https://i.imgur.com/bBYEkHN.jpeg",
+      "https://i.imgur.com/laSTgAT.jpeg",
+      "https://i.imgur.com/jfi3woz.jpeg",
+      "https://i.imgur.com/Sd9DCXt.jpeg",
+      "https://i.imgur.com/9bIlFFd.jpeg",
+      "https://i.imgur.com/eqqPWu0.jpeg",
+      "https://i.imgur.com/0wnF6c4.jpeg",
+      "https://i.imgur.com/9r27suz.jpeg",
+      "https://i.imgur.com/98OLNo2.jpeg",
+      "https://i.imgur.com/2jQLkVK.jpeg",
+      "https://i.imgur.com/dMXVan2.jpeg",
+      "https://i.imgur.com/pvft4my.jpeg",
+      "https://i.imgur.com/8t3LAVT.jpeg",
+      "https://i.imgur.com/zOQ1nAR.jpeg",
+      "https://i.imgur.com/E8Ntubz.jpeg",
+      "https://i.imgur.com/X7b9UQr.jpeg",
+      "https://i.imgur.com/3DorS9A.jpeg",
+      "https://i.imgur.com/fayZssQ.jpeg",
+      "https://i.imgur.com/GvcYlXW.jpeg"
+    ],
+    "panelCount": 48,
+    "description": "Comics That Didn't Make Front Page",
+    "imgurHash": "4J28jQZ"
+  },
+  {
+    "id": 23,
+    "title": "Self-Publishing My First Comic Book",
+    "date": "2024-11-17",
+    "coverUrl": "https://i.imgur.com/Jaiv3Ii.jpeg",
+    "panels": [
+      "https://i.imgur.com/Jaiv3Ii.jpeg",
+      "https://i.imgur.com/d7WlIds.jpeg",
+      "https://i.imgur.com/WOIHd3H.jpeg",
+      "https://i.imgur.com/cEzDIdj.jpeg",
+      "https://i.imgur.com/AuE8lFX.jpeg",
+      "https://i.imgur.com/enrdfcu.jpeg",
+      "https://i.imgur.com/9EaURn3.jpeg",
+      "https://i.imgur.com/7mBDTi3.jpeg",
+      "https://i.imgur.com/RE0xcJS.jpeg",
+      "https://i.imgur.com/JgQpuiX.jpeg",
+      "https://i.imgur.com/rh0wMRJ.jpeg",
+      "https://i.imgur.com/5r5Ydjk.jpeg"
+    ],
+    "panelCount": 12,
+    "description": "Self-Publishing My First Comic Book",
+    "imgurHash": "OnI9ZBA"
+  },
+  {
+    "id": 24,
+    "title": "I'm Coming",
+    "date": "2024-11-19",
+    "coverUrl": "https://i.imgur.com/wKCQPpX.jpeg",
+    "panels": [
+      "https://i.imgur.com/wKCQPpX.jpeg",
+      "https://i.imgur.com/3Bq0lxq.jpeg",
+      "https://i.imgur.com/9fwHHwZ.jpeg",
+      "https://i.imgur.com/6DY5E4D.jpeg",
+      "https://i.imgur.com/wuWaFbh.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "I'm Coming",
+    "imgurHash": "rmAfxxE"
+  },
+  {
+    "id": 25,
+    "title": "Daylight Saving",
+    "date": "2024-11-22",
+    "coverUrl": "https://i.imgur.com/YvEQVFT.jpeg",
+    "panels": [
+      "https://i.imgur.com/YvEQVFT.jpeg",
+      "https://i.imgur.com/7NHXw6u.jpeg",
+      "https://i.imgur.com/VdlcLPh.jpeg",
+      "https://i.imgur.com/0p2WwvB.jpeg",
+      "https://i.imgur.com/xv5EEWs.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Daylight Saving",
+    "imgurHash": "mIYS3ie"
+  },
+  {
+    "id": 26,
+    "title": "Gang War",
+    "date": "2024-12-05",
+    "coverUrl": "https://i.imgur.com/UHqz3wM.jpeg",
+    "panels": [
+      "https://i.imgur.com/UHqz3wM.jpeg",
+      "https://i.imgur.com/r2KFPHX.jpeg",
+      "https://i.imgur.com/ppVF5Gm.jpeg",
+      "https://i.imgur.com/CKjOv87.jpeg",
+      "https://i.imgur.com/K5d3nLl.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Gang War",
+    "imgurHash": "fWWTfNQ"
+  },
+  {
+    "id": 27,
+    "title": "Following My Dream: Writing a Book",
+    "date": "2024-12-09",
+    "coverUrl": "https://i.imgur.com/v5QoJ8F.jpeg",
+    "panels": [
+      "https://i.imgur.com/v5QoJ8F.jpeg",
+      "https://i.imgur.com/5NflQga.jpeg"
+    ],
+    "panelCount": 2,
+    "description": "Following My Dream: Writing a Book",
+    "imgurHash": "hcBix3O"
+  },
+  {
+    "id": 28,
+    "title": "It Do Be Like That Sometimes",
+    "date": "2024-12-11",
+    "coverUrl": "https://i.imgur.com/j7xvXqI.jpeg",
+    "panels": [
+      "https://i.imgur.com/j7xvXqI.jpeg",
+      "https://i.imgur.com/bVHJm4s.jpeg",
+      "https://i.imgur.com/7v7VpR1.jpeg",
+      "https://i.imgur.com/Hxw6Mls.jpeg",
+      "https://i.imgur.com/Xy1cZLT.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "It Do Be Like That Sometimes",
+    "imgurHash": "vmcwjjr"
+  },
+  {
+    "id": 29,
+    "title": "That's Amore",
+    "date": "2024-12-16",
+    "coverUrl": "https://i.imgur.com/2wjQWkP.jpeg",
+    "panels": [
+      "https://i.imgur.com/2wjQWkP.jpeg",
+      "https://i.imgur.com/BXDWLQC.jpeg",
+      "https://i.imgur.com/b2K2Bv3.jpeg",
+      "https://i.imgur.com/YXW3WNJ.jpeg",
+      "https://i.imgur.com/3K6OGWG.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "That's Amore",
+    "imgurHash": "TB8ekjH"
+  },
+  {
+    "id": 30,
+    "title": "Friday Night RAW",
+    "date": "2025-01-23",
+    "coverUrl": "https://i.imgur.com/J7y1VAC.jpeg",
+    "panels": [
+      "https://i.imgur.com/J7y1VAC.jpeg",
+      "https://i.imgur.com/VqLPUEg.jpeg",
+      "https://i.imgur.com/48gyrVG.jpeg",
+      "https://i.imgur.com/ag1WkUs.jpeg",
+      "https://i.imgur.com/Og6PxLE.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Friday Night RAW",
+    "imgurHash": "VApK4lj"
+  },
+  {
+    "id": 31,
+    "title": "Pay to Live",
+    "date": "2025-03-30",
+    "coverUrl": "https://i.imgur.com/fGxZUz7.jpeg",
+    "panels": [
+      "https://i.imgur.com/fGxZUz7.jpeg",
+      "https://i.imgur.com/37V9txU.jpeg",
+      "https://i.imgur.com/UpG9hRJ.jpeg",
+      "https://i.imgur.com/LxcRWyb.jpeg",
+      "https://i.imgur.com/1a42tQC.jpeg"
+    ],
+    "panelCount": 5,
+    "description": "Pay to Live",
+    "imgurHash": "UkVdv2N"
+  },
+  {
+    "id": 32,
+    "title": "Boo",
+    "date": "2025-05-14",
+    "coverUrl": "https://i.imgur.com/HSn0wOp.jpeg",
+    "panels": [
+      "https://i.imgur.com/HSn0wOp.jpeg",
+      "https://i.imgur.com/zSyLUfe.jpeg",
+      "https://i.imgur.com/EBfxMc2.jpeg",
+      "https://i.imgur.com/iRChHrS.jpeg",
+      "https://i.imgur.com/Pcflgy2.jpeg",
+      "https://i.imgur.com/oQC4p3I.jpeg"
+    ],
+    "panelCount": 6,
+    "description": "Boo",
+    "imgurHash": "w5TqisE"
   }
 ]
