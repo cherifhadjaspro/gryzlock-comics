@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "The First Comic",
+    "date": "2025-01-15",
+    "filename": "comic-001.png",
+    "description": "Welcome to the absurd world of Gryzlock!"
+  },
+  {
+    "id": 2,
+    "title": "Pop Culture Reference",
+    "date": "2025-01-22",
+    "filename": "comic-002.png",
+    "description": "Superheroes have rough days too"
+  },
+  {
+    "id": 3,
+    "title": "Everyday Humor",
+    "date": "2025-01-29",
+    "filename": "comic-003.png",
+    "description": "Why are cats so weird?"
+  },
+  {
+    "id": 4,
+    "title": "Special Collab",
+    "date": "2025-02-05",
+    "filename": "comic-004.png",
+    "description": "With a fellow artist — double the creativity!"
+  },
+  {
+    "id": 5,
+    "title": "Wild Jokes",
+    "date": "2025-02-12",
+    "filename": "comic-005.png",
+    "description": "Because absurd humor is the best humor"
+  }
+]

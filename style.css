@@ -1,0 +1,620 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-bg: #0f0f1e;
+    --darker-bg: #1a1a2e;
+    --accent: #ff6b9d;
+    --accent-light: #ff8fb3;
+    --text-light: #e0e0e0;
+    --text-lighter: #f0f0f0;
+    --border-color: #333344;
+    --success: #4ade80;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header and Navigation */
+.header {
+    background-color: var(--darker-bg);
+    border-bottom: 3px solid var(--accent);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--accent);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), -1px -1px 0 rgba(255, 255, 255, 0.1);
+    letter-spacing: 1px;
+    transform: skew(-5deg);
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    background-color: rgba(255, 107, 157, 0.1);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+}
+
+/* Main Container */
+.container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    width: 100%;
+}
+
+/* Comic Viewer Section */
+.comic-viewer {
+    background-color: var(--darker-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border: 2px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(255, 107, 157, 0.15);
+}
+
+.comic-display {
+    margin-bottom: 2rem;
+}
+
+.comic-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.comic-header h2 {
+    font-size: 1.8rem;
+    color: var(--accent-light);
+    margin-bottom: 0.5rem;
+    font-family: 'Bangers', cursive;
+}
+
+.comic-date {
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.comic-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    min-height: 300px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.05) 0%, rgba(255, 107, 157, 0.02) 100%);
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.comic-image {
+    max-width: 100%;
+    max-height: 600px;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.comic-description {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Comic Navigation */
+.comic-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    background-color: rgba(255, 107, 157, 0.05);
+    border-radius: 8px;
+}
+
+.nav-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.nav-btn:hover {
+    background-color: var(--accent-light);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+.nav-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.nav-btn .icon {
+    font-size: 1.2rem;
+}
+
+.comic-counter {
+    font-weight: 600;
+    color: var(--text-lighter);
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Recent Comics Section */
+.recent-comics {
+    margin-bottom: 3rem;
+}
+
+.recent-comics h2 {
+    font-size: 1.8rem;
+    color: var(--accent-light);
+    margin-bottom: 1.5rem;
+    font-family: 'Bangers', cursive;
+}
+
+.comics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.comic-card {
+    background-color: var(--darker-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.comic-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+}
+
+.comic-card-image {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255, 107, 157, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.comic-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comic-card-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comic-card-title {
+    font-weight: 600;
+    color: var(--accent-light);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.comic-card-date {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* About Section */
+.about-section,
+.tips-section {
+    background-color: var(--darker-bg);
+    border-radius: 12px;
+    padding: 2.5rem;
+    border: 2px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(255, 107, 157, 0.15);
+}
+
+.about-content,
+.tips-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-header,
+.tips-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-header h2,
+.tips-header h2 {
+    font-size: 2rem;
+    color: var(--accent-light);
+    margin-bottom: 0.5rem;
+    font-family: 'Bangers', cursive;
+}
+
+.tagline {
+    color: #aaa;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.about-body,
+.tips-body {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.about-body p,
+.tips-body p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.social-section {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.social-section h3 {
+    color: var(--accent-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: rgba(255, 107, 157, 0.1);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.social-card:hover {
+    border-color: var(--accent);
+    background-color: rgba(255, 107, 157, 0.15);
+    transform: translateY(-4px);
+}
+
+.social-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-name {
+    font-weight: 600;
+    color: var(--accent-light);
+}
+
+.social-handle {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.3rem;
+}
+
+/* Support Options */
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.support-option {
+    background-color: rgba(255, 107, 157, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.support-option:hover {
+    border-color: var(--accent);
+    background-color: rgba(255, 107, 157, 0.1);
+}
+
+.support-option h3 {
+    color: var(--accent-light);
+    margin-bottom: 1rem;
+}
+
+.support-option p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.gratitude {
+    background-color: rgba(74, 222, 128, 0.1);
+    border: 2px solid var(--success);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--success);
+}
+
+.gratitude p {
+    margin: 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-light);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--darker-bg);
+    border-top: 3px solid var(--accent);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    margin: 0;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 107, 157, 0.1);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: var(--accent);
+}
+
+.social-link:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: scale(1.1);
+}
+
+.instagram-icon {
+    font-size: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav {
+        gap: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .comic-viewer {
+        padding: 1.5rem;
+    }
+
+    .about-section,
+    .tips-section {
+        padding: 1.5rem;
+    }
+
+    .comics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .comic-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .about-header h2,
+    .tips-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .comic-navigation {
+        gap: 0.5rem;
+    }
+
+    .nav-btn {
+        padding: 0.6rem 0.8rem;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .comic-counter {
+        min-width: 50px;
+        font-size: 0.9rem;
+    }
+
+    .support-options {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav {
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .comic-image-wrapper {
+        min-height: 200px;
+    }
+
+    .comics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .comic-card-image {
+        height: 150px;
+    }
+
+    .about-body p,
+    .tips-body p {
+        text-align: left;
+    }
+}

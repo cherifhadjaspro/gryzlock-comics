@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1a1a2e"/>
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+
+  <!-- Border -->
+  <rect width="800" height="600" fill="none" stroke="#ff6b9d" stroke-width="3"/>
+
+  <!-- Comic panels grid -->
+  <g stroke="#333344" stroke-width="2" fill="none">
+    <line x1="400" y1="50" x2="400" y2="550"/>
+    <line x1="50" y1="300" x2="750" y2="300"/>
+  </g>
+
+  <!-- Top-left panel -->
+  <circle cx="150" cy="120" r="40" fill="#ff6b9d" opacity="0.3"/>
+  <text x="150" y="280" font-family="Arial" font-size="24" fill="#ff6b9d" text-anchor="middle" opacity="0.8">?</text>
+
+  <!-- Top-right panel -->
+  <rect x="500" y="80" width="150" height="150" fill="#ff6b9d" opacity="0.2" rx="20"/>
+  <text x="575" y="165" font-family="Arial" font-size="28" fill="#ff6b9d" text-anchor="middle" opacity="0.8">!</text>
+
+  <!-- Bottom-left panel -->
+  <polygon points="100,380 150,330 200,380" fill="#ff6b9d" opacity="0.25"/>
+  <text x="150" y="470" font-family="Arial" font-size="20" fill="#ff6b9d" text-anchor="middle" opacity="0.8">😄</text>
+
+  <!-- Bottom-right panel -->
+  <circle cx="600" cy="420" r="50" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.4"/>
+  <text x="600" y="430" font-family="Arial" font-size="28" fill="#ff6b9d" text-anchor="middle" opacity="0.8">*</text>
+
+  <!-- Center text -->
+  <text x="400" y="35" font-family="Bangers, cursive" font-size="32" fill="#ff6b9d" text-anchor="middle" opacity="0.9" font-weight="bold">Comic coming soon!</text>
+
+  <!-- Decorative elements -->
+  <circle cx="100" cy="80" r="8" fill="#ff6b9d" opacity="0.4"/>
+  <circle cx="750" cy="150" r="6" fill="#ff6b9d" opacity="0.35"/>
+  <circle cx="120" cy="520" r="7" fill="#ff6b9d" opacity="0.38"/>
+  <circle cx="700" cy="500" r="9" fill="#ff6b9d" opacity="0.32"/>
+
+  <!-- Star elements -->
+  <g fill="#ff6b9d" opacity="0.3">
+    <polygon points="320,100 325,115 341,115 329,125 334,140 320,130 306,140 311,125 299,115 315,115"/>
+    <polygon points="600,80 603,90 615,90 607,96 610,106 600,100 590,106 593,96 585,90 597,90"/>
+    <polygon points="150,540 155,555 171,555 159,565 164,580 150,570 136,580 141,565 129,555 145,555"/>
+  </g>
+</svg>
