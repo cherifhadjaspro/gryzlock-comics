@@ -1,6 +1,7 @@
 // State
 let comics = [];
 let currentIndex = 0;
+let currentPanel = 0;
 
 // DOM Elements
 const comicTitle = document.getElementById('comic-title');
@@ -14,6 +15,12 @@ const btnPrev = document.getElementById('btn-prev');
 const btnNext = document.getElementById('btn-next');
 const btnLast = document.getElementById('btn-last');
 const comicsGrid = document.getElementById('comics-grid');
+
+// Panel navigation elements
+const panelNav = document.getElementById('panel-nav');
+const panelInfo = document.getElementById('panel-info');
+const btnPanelPrev = document.getElementById('btn-panel-prev');
+const btnPanelNext = document.getElementById('btn-panel-next');
 
 /**
  * Load comics from JSON file
@@ -38,7 +45,7 @@ async function loadComics() {
         loadFromHash();
 
         // If no hash was set, show the latest comic
-        if (currentIndex === 0) {
+        if (currentIndex === 0 && !window.location.hash) {
             currentIndex = comics.length - 1;
         }
 
@@ -60,6 +67,7 @@ function loadFromHash() {
         const index = comics.findIndex(c => c.id === id);
         if (index !== -1) {
             currentIndex = index;
+            currentPanel = 0;
             return;
         }
     }
@@ -72,6 +80,25 @@ function updateHash() {
     if (comics[currentIndex]) {
         window.location.hash = `comic-${comics[currentIndex].id}`;
     }
+}
+
+/**
+ * Get the image URL for the current comic and panel
+ */
+function getImageUrl(comic, panelIndex) {
+    // New format: use panels array with Imgur URLs
+    if (comic.panels && comic.panels.length > 0) {
+        return comic.panels[panelIndex] || comic.panels[0];
+    }
+    // Fallback: use coverUrl
+    if (comic.coverUrl) {
+        return comic.coverUrl;
+    }
+    // Legacy format: use filename from comics/ folder
+    if (comic.filename) {
+        return `comics/${comic.filename}`;
+    }
+    return 'placeholder.svg';
 }
 
 /**
@@ -89,22 +116,67 @@ function updateDisplay() {
     comicDate.textContent = formatDate(comic.date);
     comicDescription.textContent = comic.description || 'A funny comic by Gryzlock';
 
-    // Try to load the comic image, fall back to placeholder if not found
-    comicImage.src = `comics/${comic.filename}`;
+    // Load the comic image
+    const imgUrl = getImageUrl(comic, currentPanel);
+    comicImage.src = imgUrl;
     comicImage.onerror = function() {
         this.src = 'placeholder.svg';
     };
 
     currentIndexSpan.textContent = currentIndex + 1;
 
-    // Update button states
+    // Update comic navigation button states
     btnFirst.disabled = currentIndex === 0;
     btnPrev.disabled = currentIndex === 0;
     btnNext.disabled = currentIndex === comics.length - 1;
     btnLast.disabled = currentIndex === comics.length - 1;
 
+    // Update panel navigation
+    updatePanelNav(comic);
+
     // Update hash
     updateHash();
+}
+
+/**
+ * Update panel navigation UI
+ */
+function updatePanelNav(comic) {
+    const totalPanels = comic.panels ? comic.panels.length : 1;
+
+    if (totalPanels <= 1) {
+        // Single panel comic — hide panel nav
+        if (panelNav) panelNav.style.display = 'none';
+        return;
+    }
+
+    // Multi-panel comic — show panel nav
+    if (panelNav) panelNav.style.display = 'flex';
+    if (panelInfo) panelInfo.textContent = `Panel ${currentPanel + 1} / ${totalPanels}`;
+    if (btnPanelPrev) btnPanelPrev.disabled = currentPanel === 0;
+    if (btnPanelNext) btnPanelNext.disabled = currentPanel === totalPanels - 1;
+}
+
+/**
+ * Navigate to previous panel
+ */
+function prevPanel() {
+    if (currentPanel > 0) {
+        currentPanel--;
+        updateDisplay();
+    }
+}
+
+/**
+ * Navigate to next panel
+ */
+function nextPanel() {
+    const comic = comics[currentIndex];
+    const totalPanels = comic.panels ? comic.panels.length : 1;
+    if (currentPanel < totalPanels - 1) {
+        currentPanel++;
+        updateDisplay();
+    }
 }
 
 /**
@@ -117,10 +189,11 @@ function showPlaceholder() {
     comicImage.src = 'placeholder.svg';
     totalCountSpan.textContent = '0';
     currentIndexSpan.textContent = '0';
+    if (panelNav) panelNav.style.display = 'none';
 }
 
 /**
- * Format date to French format
+ * Format date
  */
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -133,6 +206,7 @@ function formatDate(dateString) {
 function goToFirst() {
     if (comics.length > 0) {
         currentIndex = 0;
+        currentPanel = 0;
         updateDisplay();
         scrollToComic();
     }
@@ -144,6 +218,7 @@ function goToFirst() {
 function goToPrev() {
     if (currentIndex > 0) {
         currentIndex--;
+        currentPanel = 0;
         updateDisplay();
         scrollToComic();
     }
@@ -155,6 +230,7 @@ function goToPrev() {
 function goToNext() {
     if (currentIndex < comics.length - 1) {
         currentIndex++;
+        currentPanel = 0;
         updateDisplay();
         scrollToComic();
     }
@@ -166,6 +242,7 @@ function goToNext() {
 function goToLast() {
     if (comics.length > 0) {
         currentIndex = comics.length - 1;
+        currentPanel = 0;
         updateDisplay();
         scrollToComic();
     }
@@ -178,6 +255,7 @@ function goToComic(id) {
     const index = comics.findIndex(c => c.id === id);
     if (index !== -1) {
         currentIndex = index;
+        currentPanel = 0;
         updateDisplay();
         scrollToComic();
     }
@@ -214,8 +292,10 @@ function populateGrid() {
         imageWrapper.className = 'comic-card-image';
 
         const img = document.createElement('img');
-        img.src = `comics/${comic.filename}`;
+        // Use coverUrl or first panel for thumbnail
+        img.src = comic.coverUrl || (comic.panels && comic.panels[0]) || `comics/${comic.filename}`;
         img.alt = comic.title;
+        img.loading = 'lazy';
         img.onerror = function() {
             this.src = 'placeholder.svg';
         };
@@ -231,6 +311,14 @@ function populateGrid() {
         const date = document.createElement('div');
         date.className = 'comic-card-date';
         date.textContent = formatDate(comic.date);
+
+        // Show panel count badge if multi-panel
+        if (comic.panelCount && comic.panelCount > 1) {
+            const badge = document.createElement('span');
+            badge.className = 'panel-badge';
+            badge.textContent = `${comic.panelCount} panels`;
+            info.appendChild(badge);
+        }
 
         info.appendChild(title);
         info.appendChild(date);
@@ -251,6 +339,10 @@ function setupEventListeners() {
     btnNext.addEventListener('click', goToNext);
     btnLast.addEventListener('click', goToLast);
 
+    // Panel navigation
+    if (btnPanelPrev) btnPanelPrev.addEventListener('click', prevPanel);
+    if (btnPanelNext) btnPanelNext.addEventListener('click', nextPanel);
+
     // Handle hash changes (back/forward buttons)
     window.addEventListener('hashchange', () => {
         loadFromHash();
@@ -260,8 +352,25 @@ function setupEventListeners() {
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') goToPrev();
-        if (e.key === 'ArrowRight') goToNext();
+        const comic = comics[currentIndex];
+        const totalPanels = comic?.panels ? comic.panels.length : 1;
+
+        if (e.key === 'ArrowLeft') {
+            // If multi-panel and not at first panel, go to prev panel
+            if (totalPanels > 1 && currentPanel > 0) {
+                prevPanel();
+            } else {
+                goToPrev();
+            }
+        }
+        if (e.key === 'ArrowRight') {
+            // If multi-panel and not at last panel, go to next panel
+            if (totalPanels > 1 && currentPanel < totalPanels - 1) {
+                nextPanel();
+            } else {
+                goToNext();
+            }
+        }
     });
 }
 
