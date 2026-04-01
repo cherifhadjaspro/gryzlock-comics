@@ -46,7 +46,7 @@
     <script>
         async function loadGallery() {
             try {
-                const response = await fetch('comics.json');
+                const response = await fetch('comics.json?v=2');
                 const comics = await response.json();
                 const grid = document.getElementById('gallery-grid');
 

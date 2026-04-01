@@ -20,7 +20,7 @@ const comicsGrid = document.getElementById('comics-grid');
  */
 async function loadComics() {
     try {
-        const response = await fetch('comics.json');
+        const response = await fetch('comics.json?v=2');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
