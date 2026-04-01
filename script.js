@@ -292,7 +292,7 @@ function populateBanner() {
     bannerCards.innerHTML = '';
 
     const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    const latest = comics.slice(-3).reverse();
+    const latest = comics.slice(-3);
 
     latest.forEach(comic => {
         const d = new Date(comic.date + 'T00:00:00');
