@@ -44,6 +44,7 @@ async function loadComics() {
 
         updateDisplay();
         populateGrid();
+        populateBanner();
     } catch (error) {
         console.error('Error loading comics:', error);
         showPlaceholder();
@@ -278,6 +279,52 @@ function populateGrid() {
         card.appendChild(info);
 
         comicsGrid.appendChild(card);
+    });
+}
+
+/**
+ * Populate the latest comics banner (3 most recent)
+ */
+function populateBanner() {
+    const bannerCards = document.getElementById('latest-banner-cards');
+    if (!bannerCards || comics.length === 0) return;
+
+    bannerCards.innerHTML = '';
+
+    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const latest = comics.slice(-3).reverse();
+
+    latest.forEach(comic => {
+        const d = new Date(comic.date + 'T00:00:00');
+        const dayName = days[d.getDay()];
+        const monthDay = (d.getMonth() + 1) + '/' + d.getDate();
+
+        const card = document.createElement('a');
+        card.href = '#comic-' + comic.id;
+        card.className = 'latest-banner-card';
+        card.onclick = function(e) {
+            e.preventDefault();
+            goToComic(comic.id);
+        };
+
+        const img = document.createElement('img');
+        img.src = comic.coverUrl || (comic.panels && comic.panels[0]) || 'placeholder.svg';
+        img.alt = comic.title;
+        img.loading = 'eager';
+
+        const dateOverlay = document.createElement('div');
+        dateOverlay.className = 'latest-banner-date';
+        dateOverlay.innerHTML = '<span class="latest-banner-day">' + dayName + '</span>' +
+            '<span class="latest-banner-monthday">' + monthDay + '</span>';
+
+        const titleOverlay = document.createElement('div');
+        titleOverlay.className = 'latest-banner-title';
+        titleOverlay.textContent = comic.title;
+
+        card.appendChild(img);
+        card.appendChild(dateOverlay);
+        card.appendChild(titleOverlay);
+        bannerCards.appendChild(card);
     });
 }
 
