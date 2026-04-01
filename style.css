@@ -92,6 +92,34 @@ body {
     border-bottom: 2px solid var(--accent);
 }
 
+/* Tagline Bar */
+.tagline-bar {
+    background-color: var(--darker-bg);
+    text-align: center;
+    padding: 1.2rem 1.5rem;
+}
+
+.tagline-bar p {
+    font-family: 'Bangers', cursive;
+    font-size: 2.2rem;
+    color: var(--text-lighter);
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .tagline-bar p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tagline-bar p {
+        font-size: 1.2rem;
+    }
+}
+
 /* Latest Comics Banner (Penny Arcade-inspired) */
 .latest-banner {
     background: linear-gradient(135deg, var(--accent) 0%, #e0457b 100%);
@@ -369,7 +397,6 @@ body {
     margin-top: 1rem;
     font-style: italic;
 }
-
 /* Comic Navigation */
 .comic-navigation {
     display: flex;
