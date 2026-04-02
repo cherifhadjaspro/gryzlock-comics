@@ -1,6 +1,7 @@
 // State
 let comics = [];
 let currentIndex = 0;
+let isInitialLoad = true;
 
 // DOM Elements
 const comicTitle = document.getElementById('comic-title');
@@ -24,6 +25,7 @@ async function loadComics() {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         comics = await response.json();
 
         if (!comics || comics.length === 0) {
@@ -45,6 +47,11 @@ async function loadComics() {
         updateDisplay();
         populateGrid();
         populateBanner();
+
+        // Stay at top on initial page load
+        isInitialLoad = false;
+        window.scrollTo(0, 0);
+
     } catch (error) {
         console.error('Error loading comics:', error);
         showPlaceholder();
@@ -71,7 +78,11 @@ function loadFromHash() {
  */
 function updateHash() {
     if (comics[currentIndex]) {
-        window.location.hash = `comic-${comics[currentIndex].id}`;
+        if (isInitialLoad) {
+            history.replaceState(null, '', `#comic-${comics[currentIndex].id}`);
+        } else {
+            window.location.hash = `comic-${comics[currentIndex].id}`;
+        }
     }
 }
 
@@ -118,9 +129,7 @@ function updateDisplay() {
         img.src = url;
         img.alt = `${comic.title} - Panel ${i + 1}`;
         img.className = 'panel-img';
-        img.onerror = function() {
-            this.src = 'placeholder.svg';
-        };
+        img.onerror = function() { this.src = 'placeholder.svg'; };
         comicPanels.appendChild(img);
     });
 
@@ -248,9 +257,8 @@ function populateGrid() {
         img.src = comic.coverUrl || (comic.panels && comic.panels[0]) || `comics/${comic.filename}`;
         img.alt = comic.title;
         img.loading = 'lazy';
-        img.onerror = function() {
-            this.src = 'placeholder.svg';
-        };
+        img.onerror = function() { this.src = 'placeholder.svg'; };
+
         imageWrapper.appendChild(img);
 
         const info = document.createElement('div');
@@ -324,6 +332,7 @@ function populateBanner() {
         card.appendChild(img);
         card.appendChild(dateOverlay);
         card.appendChild(titleOverlay);
+
         bannerCards.appendChild(card);
     });
 }
@@ -346,12 +355,8 @@ function setupEventListeners() {
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            goToPrev();
-        }
-        if (e.key === 'ArrowRight') {
-            goToNext();
-        }
+        if (e.key === 'ArrowLeft') { goToPrev(); }
+        if (e.key === 'ArrowRight') { goToNext(); }
     });
 }
 
