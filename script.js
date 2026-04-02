@@ -211,6 +211,21 @@ function goToLast() {
 }
 
 /**
+ * Navigate to a random comic
+ */
+function goToRandom() {
+    if (comics.length > 1) {
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * comics.length);
+        } while (randomIndex === currentIndex);
+        currentIndex = randomIndex;
+        updateDisplay();
+        scrollToComic();
+    }
+}
+
+/**
  * Navigate to specific comic by ID
  */
 function goToComic(id) {
@@ -345,6 +360,12 @@ function setupEventListeners() {
     btnPrev.addEventListener('click', goToPrev);
     btnNext.addEventListener('click', goToNext);
     btnLast.addEventListener('click', goToLast);
+
+    // Random comic button
+    const btnRandom = document.getElementById('btn-random');
+    if (btnRandom) {
+        btnRandom.addEventListener('click', goToRandom);
+    }
 
     // Handle hash changes (back/forward buttons)
     window.addEventListener('hashchange', () => {
