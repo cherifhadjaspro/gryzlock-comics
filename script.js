@@ -329,6 +329,20 @@ function populateBanner() {
 }
 
 /**
+ * Navigate to random comic
+ */
+function goToRandom() {
+    if (comics.length <= 1) return;
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * comics.length);
+    } while (randomIndex === currentIndex);
+    currentIndex = randomIndex;
+    updateDisplay();
+    scrollToComic();
+}
+
+/**
  * Share the current comic
  */
 function shareComic() {
@@ -375,6 +389,10 @@ function setupEventListeners() {
     btnPrev.addEventListener('click', goToPrev);
     btnNext.addEventListener('click', goToNext);
     btnLast.addEventListener('click', goToLast);
+
+    // Random button
+    const btnRandom = document.getElementById('btn-random');
+    if (btnRandom) btnRandom.addEventListener('click', goToRandom);
 
     // Share button
     const btnShare = document.getElementById('btn-share');
