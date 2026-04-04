@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gryzlock Comics</title>
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=7">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -25,11 +25,16 @@
         </div>
     </header>
 
+    <div class="tagline-bar">
+        <p>I do webcomics to make people laugh</p>
+    </div>
+
     <section class="latest-banner">
         <div class="latest-banner-content">
             <div class="latest-banner-label">
                 <span class="latest-label-big">LATEST</span>
                 <span class="latest-label-big">COMICS</span>
+                <span class="latest-label-sub">NEW STRIPS EVERY WEEK</span>
             </div>
             <div class="latest-banner-cards" id="latest-banner-cards">
                 <!-- Filled by JS -->
@@ -52,26 +57,34 @@
 
             <div class="comic-navigation">
                 <button id="btn-first" class="nav-btn" title="First comic">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="5" width="3" height="14"></rect><polygon points="21 5 10 12 21 19"></polygon></svg>
+                    <span class="icon">â®</span>
                 </button>
                 <button id="btn-prev" class="nav-btn" title="Previous comic">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="20 5 7 12 20 19"></polygon></svg>
+                    <span class="icon">â</span>
                 </button>
                 <span class="comic-counter">
                     <span id="current-index">1</span> / <span id="total-count">-</span>
                 </span>
                 <button id="btn-next" class="nav-btn" title="Next comic">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="4 5 17 12 4 19"></polygon></svg>
+                    <span class="icon">â¶</span>
                 </button>
                 <button id="btn-last" class="nav-btn" title="Latest comic">
-                    <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="3 5 14 12 3 19"></polygon><rect x="18" y="5" width="3" height="14"></rect></svg>
+                    <span class="icon">â­</span>
                 </button>
             </div>
 
-            <div class="random-section">
-                <button id="btn-random" class="btn-random" title="Random comic">
-                    Random Comic
+            <div class="share-bar">
+                <button id="btn-share" class="share-btn" title="Share this comic">
+                    <svg class="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                    <span>Share</span>
                 </button>
+                <span id="share-feedback" class="share-feedback"></span>
             </div>
         </section>
 
@@ -87,7 +100,7 @@
         <div class="footer-content">
             <p>&copy; 2026 Gryzlock Comics. All rights reserved.</p>
             <a href="https://www.instagram.com/gryzlock_comics/" target="_blank" class="social-link" title="Instagram">
-                <svg class="instagram-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span class="instagram-icon">ð·</span>
             </a>
         </div>
     </footer>
