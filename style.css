@@ -447,6 +447,11 @@ body {
     font-size: 1.2rem;
 }
 
+.nav-icon {
+    width: 20px;
+    height: 20px;
+}
+
 .comic-counter {
     font-weight: 600;
     color: var(--text-lighter);
@@ -505,6 +510,40 @@ body {
 
 .share-feedback.visible {
     opacity: 1;
+}
+
+/* Random Comic Button */
+.random-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-random {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c850c0 50%, #6c63ff 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(200, 80, 192, 0.3);
+}
+
+.btn-random:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(200, 80, 192, 0.5);
+}
+
+.btn-random:active {
+    transform: scale(0.95);
 }
 
 /* Panel count badge on cards */
