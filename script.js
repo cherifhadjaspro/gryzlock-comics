@@ -1,7 +1,6 @@
 // State
 let comics = [];
 let currentIndex = 0;
-let isInitialLoad = true;
 
 // DOM Elements
 const comicTitle = document.getElementById('comic-title');
@@ -25,7 +24,6 @@ async function loadComics() {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
         comics = await response.json();
 
         if (!comics || comics.length === 0) {
@@ -47,11 +45,6 @@ async function loadComics() {
         updateDisplay();
         populateGrid();
         populateBanner();
-
-        // Stay at top on initial page load
-        isInitialLoad = false;
-        window.scrollTo(0, 0);
-
     } catch (error) {
         console.error('Error loading comics:', error);
         showPlaceholder();
@@ -78,11 +71,7 @@ function loadFromHash() {
  */
 function updateHash() {
     if (comics[currentIndex]) {
-        if (isInitialLoad) {
-            history.replaceState(null, '', `#comic-${comics[currentIndex].id}`);
-        } else {
-            window.location.hash = `comic-${comics[currentIndex].id}`;
-        }
+        window.location.hash = `comic-${comics[currentIndex].id}`;
     }
 }
 
@@ -129,7 +118,9 @@ function updateDisplay() {
         img.src = url;
         img.alt = `${comic.title} - Panel ${i + 1}`;
         img.className = 'panel-img';
-        img.onerror = function() { this.src = 'placeholder.svg'; };
+        img.onerror = function() {
+            this.src = 'placeholder.svg';
+        };
         comicPanels.appendChild(img);
     });
 
@@ -211,21 +202,6 @@ function goToLast() {
 }
 
 /**
- * Navigate to a random comic
- */
-function goToRandom() {
-    if (comics.length > 1) {
-        let randomIndex;
-        do {
-            randomIndex = Math.floor(Math.random() * comics.length);
-        } while (randomIndex === currentIndex);
-        currentIndex = randomIndex;
-        updateDisplay();
-        scrollToComic();
-    }
-}
-
-/**
  * Navigate to specific comic by ID
  */
 function goToComic(id) {
@@ -272,8 +248,9 @@ function populateGrid() {
         img.src = comic.coverUrl || (comic.panels && comic.panels[0]) || `comics/${comic.filename}`;
         img.alt = comic.title;
         img.loading = 'lazy';
-        img.onerror = function() { this.src = 'placeholder.svg'; };
-
+        img.onerror = function() {
+            this.src = 'placeholder.svg';
+        };
         imageWrapper.appendChild(img);
 
         const info = document.createElement('div');
@@ -347,9 +324,47 @@ function populateBanner() {
         card.appendChild(img);
         card.appendChild(dateOverlay);
         card.appendChild(titleOverlay);
-
         bannerCards.appendChild(card);
     });
+}
+
+/**
+ * Share the current comic
+ */
+function shareComic() {
+    const comic = comics[currentIndex];
+    if (!comic) return;
+
+    const url = window.location.origin + window.location.pathname + '#comic-' + comic.id;
+    const title = comic.title + ' - Gryzlock Comics';
+
+    if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(() => {});
+    } else {
+        navigator.clipboard.writeText(url).then(() => {
+            showShareFeedback('Link copied!');
+        }).catch(() => {
+            // Fallback for older browsers
+            const input = document.createElement('input');
+            input.value = url;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            showShareFeedback('Link copied!');
+        });
+    }
+}
+
+/**
+ * Show share feedback message
+ */
+function showShareFeedback(msg) {
+    const el = document.getElementById('share-feedback');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('visible');
+    setTimeout(() => { el.classList.remove('visible'); }, 2000);
 }
 
 /**
@@ -361,11 +376,9 @@ function setupEventListeners() {
     btnNext.addEventListener('click', goToNext);
     btnLast.addEventListener('click', goToLast);
 
-    // Random comic button
-    const btnRandom = document.getElementById('btn-random');
-    if (btnRandom) {
-        btnRandom.addEventListener('click', goToRandom);
-    }
+    // Share button
+    const btnShare = document.getElementById('btn-share');
+    if (btnShare) btnShare.addEventListener('click', shareComic);
 
     // Handle hash changes (back/forward buttons)
     window.addEventListener('hashchange', () => {
@@ -376,8 +389,12 @@ function setupEventListeners() {
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') { goToPrev(); }
-        if (e.key === 'ArrowRight') { goToNext(); }
+        if (e.key === 'ArrowLeft') {
+            goToPrev();
+        }
+        if (e.key === 'ArrowRight') {
+            goToNext();
+        }
     });
 }
 
