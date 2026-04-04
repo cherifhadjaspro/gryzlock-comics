@@ -60,8 +60,7 @@ body {
     font-family: 'Bangers', cursive;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--accent);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7),
-                 -1px -1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), -1px -1px 0 rgba(255, 255, 255, 0.1);
     letter-spacing: 1px;
     transform: skew(-5deg);
 }
@@ -110,11 +109,15 @@ body {
 }
 
 @media (max-width: 768px) {
-    .tagline-bar p { font-size: 1.5rem; }
+    .tagline-bar p {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .tagline-bar p { font-size: 1.2rem; }
+    .tagline-bar p {
+        font-size: 1.2rem;
+    }
 }
 
 /* Latest Comics Banner (Penny Arcade-inspired) */
@@ -257,20 +260,52 @@ body {
         min-width: auto;
     }
 
-    .latest-label-big { font-size: 1.8rem; }
-    .latest-label-sub { margin-top: 0; font-size: 0.65rem; }
-    .latest-banner-cards { gap: 2px; }
-    .latest-banner-card { min-height: 120px; }
-    .latest-banner-day { font-size: 1.1rem; }
-    .latest-banner-monthday { font-size: 1.6rem; }
-    .latest-banner-title { font-size: 0.7rem; }
+    .latest-label-big {
+        font-size: 1.8rem;
+    }
+
+    .latest-label-sub {
+        margin-top: 0;
+        font-size: 0.65rem;
+    }
+
+    .latest-banner-cards {
+        gap: 2px;
+    }
+
+    .latest-banner-card {
+        min-height: 120px;
+    }
+
+    .latest-banner-day {
+        font-size: 1.1rem;
+    }
+
+    .latest-banner-monthday {
+        font-size: 1.6rem;
+    }
+
+    .latest-banner-title {
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .latest-banner-card { min-height: 100px; }
-    .latest-banner-day { font-size: 0.9rem; }
-    .latest-banner-monthday { font-size: 1.3rem; }
-    .latest-banner-title { display: none; }
+    .latest-banner-card {
+        min-height: 100px;
+    }
+
+    .latest-banner-day {
+        font-size: 0.9rem;
+    }
+
+    .latest-banner-monthday {
+        font-size: 1.3rem;
+    }
+
+    .latest-banner-title {
+        display: none;
+    }
 }
 
 /* Main Container */
@@ -412,11 +447,6 @@ body {
     font-size: 1.2rem;
 }
 
-.nav-icon {
-    width: 20px;
-    height: 20px;
-}
-
 .comic-counter {
     font-weight: 600;
     color: var(--text-lighter);
@@ -424,42 +454,57 @@ body {
     text-align: center;
 }
 
-/* Random Comic Button */
-.random-section {
+/* Share Button */
+.share-bar {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
     margin-top: 1rem;
 }
 
-.btn-random {
+.share-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #ff6b9d 0%, #c850c0 50%, #6c63ff 100%);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: 'Bangers', cursive;
-    letter-spacing: 1px;
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(200, 80, 192, 0.3);
+    transition: all 0.2s ease;
 }
 
-.btn-random:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(200, 80, 192, 0.5);
+.share-btn:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
 }
 
-.btn-random:active {
+.share-btn:active {
     transform: scale(0.95);
 }
 
-.random-icon {
-    font-size: 1.3rem;
+.share-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.share-feedback {
+    font-size: 0.85rem;
+    color: var(--success);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.share-feedback.visible {
+    opacity: 1;
 }
 
 /* Panel count badge on cards */
@@ -650,31 +695,6 @@ body {
     font-size: 0.85rem;
     color: #888;
     margin-top: 0.3rem;
-}
-
-/* Instagram SVG Icons */
-.instagram-svg {
-    display: block;
-}
-
-.instagram-svg-large {
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-}
-
-.social-card:hover .instagram-svg-large {
-    color: var(--accent-light);
-}
-
-.instagram-svg-btn {
-    vertical-align: middle;
-    margin-right: 0.3rem;
-}
-
-.btn-instagram {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
 }
 
 /* Support Options */
