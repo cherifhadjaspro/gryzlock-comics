@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gryzlock Comics</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -76,20 +76,21 @@
             </div>
 
             <div class="share-bar">
-                <a href="https://www.instagram.com/gryzlock_comics/" target="_blank" class="share-btn" title="Instagram">
+                <button id="btn-share-insta" class="share-btn" title="Copy link to share on Instagram">
                     <svg class="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                         <circle cx="12" cy="12" r="5"/>
                         <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
                     </svg>
                     <span>Instagram</span>
-                </a>
-                <a href="https://x.com/gryzlock_comics" target="_blank" class="share-btn" title="X (Twitter)">
+                </button>
+                <button id="btn-share-x" class="share-btn" title="Share on X">
                     <svg class="share-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                     <span>X</span>
-                </a>
+                </button>
+                <span id="share-feedback" class="share-feedback"></span>
             </div>
         </section>
 
@@ -110,6 +111,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=9"></script>
+    <script src="script.js?v=10"></script>
 </body>
 </html>
