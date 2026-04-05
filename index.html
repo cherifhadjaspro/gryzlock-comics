@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gryzlock Comics</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css?v=10">
+    <link rel="stylesheet" href="style.css?v=11">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -76,20 +76,34 @@
             </div>
 
             <div class="share-bar">
-                <button id="btn-share-insta" class="share-btn" title="Copy link to share on Instagram">
+                <button id="btn-share" class="share-btn" title="Share this comic">
                     <svg class="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <circle cx="12" cy="12" r="5"/>
-                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
                     </svg>
-                    <span>Instagram</span>
+                    <span>Share</span>
                 </button>
-                <button id="btn-share-x" class="share-btn" title="Share on X">
-                    <svg class="share-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    <span>X</span>
-                </button>
+                <div id="share-popup" class="share-popup" hidden>
+                    <button id="btn-share-close" class="share-popup-close" title="Close" aria-label="Close">&times;</button>
+                    <div class="share-popup-buttons">
+                        <button id="btn-share-x" class="share-popup-btn share-x-btn" title="Tweet">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            <span>Tweet</span>
+                        </button>
+                        <button id="btn-share-fb" class="share-popup-btn share-fb-btn" title="Share on Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                            <span>Share</span>
+                        </button>
+                    </div>
+                    <div class="share-permalink-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        <span>PERMALINK</span>
+                    </div>
+                    <a id="share-permalink" class="share-permalink" href="#"></a>
+                </div>
                 <span id="share-feedback" class="share-feedback"></span>
             </div>
         </section>
@@ -111,6 +125,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=10"></script>
+    <script src="script.js?v=11"></script>
 </body>
 </html>
