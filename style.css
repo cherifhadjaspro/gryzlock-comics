@@ -512,6 +512,125 @@ body {
     opacity: 1;
 }
 
+/* Share popup */
+.share-bar {
+    position: relative;
+    flex-direction: column;
+}
+
+.share-popup {
+    position: relative;
+    margin-top: 0.8rem;
+    background: #1a1b2e;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 280px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    animation: share-popup-in 0.15s ease-out;
+}
+
+.share-popup[hidden] {
+    display: none;
+}
+
+@keyframes share-popup-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.share-popup-close {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.6rem;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.share-popup-close:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.share-popup-buttons {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.share-popup-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.share-popup-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.share-popup-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.share-x-btn {
+    background: #000;
+}
+
+.share-fb-btn {
+    background: #1877F2;
+}
+
+.share-permalink-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+}
+
+.share-permalink-label svg {
+    width: 14px;
+    height: 14px;
+}
+
+.share-permalink {
+    font-size: 0.8rem;
+    color: #5eb5ff;
+    word-break: break-all;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.share-permalink:hover {
+    text-decoration: underline;
+}
+
+
 /* Random Comic Button */
 .random-section {
     display: flex;
