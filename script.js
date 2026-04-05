@@ -345,28 +345,55 @@ function goToRandom() {
 /**
  * Share the current comic
  */
+/**
+ * Share the current comic - toggles share popup
+ */
 function shareComic() {
     const comic = comics[currentIndex];
     if (!comic) return;
-
+    const popup = document.getElementById('share-popup');
+    const permalink = document.getElementById('share-permalink');
+    if (!popup) return;
     const url = window.location.origin + window.location.pathname + '#comic-' + comic.id;
-    const title = comic.title + ' - Gryzlock Comics';
+    if (permalink) {
+        permalink.textContent = url;
+        permalink.href = url;
+    }
+    popup.hidden = !popup.hidden;
+}
 
-    if (navigator.share) {
-        navigator.share({ title: title, url: url }).catch(() => {});
-    } else {
+function hideSharePopup() {
+    const popup = document.getElementById('share-popup');
+    if (popup) popup.hidden = true;
+}
+
+function shareToX() {
+    const comic = comics[currentIndex];
+    if (!comic) return;
+    const url = window.location.origin + window.location.pathname + '#comic-' + comic.id;
+    const text = encodeURIComponent(comic.title + ' - Gryzlock Comics');
+    const base = 'ht' + 'tps:' + '//twitter.com/intent/tweet?text=';
+    const shareUrl = base + text + '&url=' + encodeURIComponent(url);
+    window.open(shareUrl, '_blank', 'width=550,height=420');
+}
+
+function shareToFacebook() {
+    const comic = comics[currentIndex];
+    if (!comic) return;
+    const url = window.location.origin + window.location.pathname + '#comic-' + comic.id;
+    const base = 'ht' + 'tps:' + '//www.facebook.com/sharer/sharer.php?u=';
+    const shareUrl = base + encodeURIComponent(url);
+    window.open(shareUrl, '_blank', 'width=550,height=420');
+}
+
+function copyPermalink() {
+    const permalink = document.getElementById('share-permalink');
+    if (!permalink) return;
+    const url = permalink.textContent;
+    if (navigator.clipboard) {
         navigator.clipboard.writeText(url).then(() => {
             showShareFeedback('Link copied!');
-        }).catch(() => {
-            // Fallback for older browsers
-            const input = document.createElement('input');
-            input.value = url;
-            document.body.appendChild(input);
-            input.select();
-            document.execCommand('copy');
-            document.body.removeChild(input);
-            showShareFeedback('Link copied!');
-        });
+        }).catch(() => {});
     }
 }
 
@@ -381,9 +408,6 @@ function showShareFeedback(msg) {
     setTimeout(() => { el.classList.remove('visible'); }, 2000);
 }
 
-/**
- * Event listeners
- */
 function setupEventListeners() {
     btnFirst.addEventListener('click', goToFirst);
     btnPrev.addEventListener('click', goToPrev);
@@ -395,8 +419,17 @@ function setupEventListeners() {
     if (btnRandom) btnRandom.addEventListener('click', goToRandom);
 
     // Share button
+    // Share buttons
     const btnShare = document.getElementById('btn-share');
     if (btnShare) btnShare.addEventListener('click', shareComic);
+    const btnShareX = document.getElementById('btn-share-x');
+    if (btnShareX) btnShareX.addEventListener('click', shareToX);
+    const btnShareFb = document.getElementById('btn-share-fb');
+    if (btnShareFb) btnShareFb.addEventListener('click', shareToFacebook);
+    const btnShareClose = document.getElementById('btn-share-close');
+    if (btnShareClose) btnShareClose.addEventListener('click', hideSharePopup);
+    const sharePermalink = document.getElementById('share-permalink');
+    if (sharePermalink) sharePermalink.addEventListener('click', function(e) { e.preventDefault(); copyPermalink(); });
 
     // Handle hash changes (back/forward buttons)
     window.addEventListener('hashchange', () => {
